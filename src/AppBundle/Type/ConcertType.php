@@ -12,8 +12,11 @@ class ConcertType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('date')
+            ->add('organisateur')
+            ->add('description')
             ->add('nbrPlace')
+            ->add('date')
+
         ;
     }
 }

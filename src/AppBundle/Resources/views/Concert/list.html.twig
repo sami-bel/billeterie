@@ -35,6 +35,8 @@
             <thead>
                 <tr>
                     <th>nom</th>
+                    <th>organisateur</th>
+                    <th>description</th>
                     <th>date</th>
                     <th>place</th>
                 </tr>
@@ -43,9 +45,10 @@
                 {% for concert in concerts %}
                     <tr>
                         <td>{{ concert.nom }}</td>
+                        <td>{{ concert.organisateur}}</td>
+                        <td>{{ concert.description}}</td>
                         <td>{{ concert.date|date('l j M Y H:i:s') }}</td>
                         <td>{{ concert.nbrPlace}}</td>
-
                         <td>
                             <a href="{{ path('concert_update', { 'id': concert.id }) }}" class="btn btn-info" role="button">Modify</a>
 
