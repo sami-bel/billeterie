@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
@@ -51,6 +52,12 @@ class Article
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @Gedmo\Slug(fields={"title"}, updatable=true)
+     * @ORM\Column(length=255, unique=true)
+     */
+    protected $slug;
 
     public function __construct()
     {
@@ -130,5 +137,29 @@ class Article
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

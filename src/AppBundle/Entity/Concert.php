@@ -42,6 +42,20 @@ class Concert
      */
     private $nbrPlace;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="organisateur", type="string", length=255)
+     */
+    private $organisateur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text")
+     */
+    private $description;
+
 
     /**
      * Get id
@@ -124,5 +138,54 @@ class Concert
     {
         return $this->nbrPlace;
     }
-}
 
+    /**
+     * Set organisateur
+     *
+     * @param string $organisateur
+     *
+     * @return Concert
+     */
+    public function setOrganisateur($organisateur)
+    {
+        $this->organisateur = $organisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get organisateur
+     *
+     * @return string
+     */
+    public function getOrganisateur()
+    {
+        return $this->organisateur;
+    }
+
+ 
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Concert
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+}

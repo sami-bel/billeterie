@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
+use AppBundle\Entity\Concert;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -17,7 +18,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/post/{id}", name="post")
+     * @Route("/post/{slug}", name="post")
      */
     public function postAction(Article $article)
     {
@@ -33,4 +34,24 @@ class DefaultController extends Controller
 
         return $this->render('AppBundle:default:posts.html.twig', array('articles' => $articles));
     }
+
+    /**
+     * @Route("/concert/{id}", name="concert")
+     */
+    public function concertAction(Concert $concert)
+    {
+        return $this->render('AppBundle:Concert:concert.html.twig', array('concert' => $concert));
+    }
+
+    /**
+     * @Route("/concerts", name="concerts")
+     */
+    public function concertsAction()
+    {
+        $concerts = $this->getDoctrine()->getRepository('AppBundle:Concert')->findAll();
+
+        return $this->render('AppBundle:Concert:concerts.html.twig', array('concerts' => $concerts));
+    }
 }
+
+
