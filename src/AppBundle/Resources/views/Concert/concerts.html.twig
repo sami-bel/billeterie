@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block top %}
-    <section id="home">
+    <section id="home" xmlns="http://www.w3.org/1999/html">
         <div id="main-slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="item active">
@@ -25,8 +25,8 @@
                         <div class="blog-post ">
                             <h2>{{ concert.nom }}</h2>
                             <h3>ce concert est organisé par :</h3>{{ concert.organisateur }}
-                            <h3>il reste : </h3>{{ concert.nbrPlace }}
-                            <h3> ce serait le </h3> {{ concert.date |date('d/m/Y')  }}
+                            <h3>il reste : {{ concert.nbrPlace }} places </h3>
+                            <h3> date :  {{ concert.date |date('d/m/Y')  }} </h3></br>
                             <a href="{{ path('concert', { 'id' : concert.id}) }}" class="btn btn-primary">Read it <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>

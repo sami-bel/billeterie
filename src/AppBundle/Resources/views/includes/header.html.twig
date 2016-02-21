@@ -29,6 +29,9 @@
                         <li class="{% if 'posts' == app.request.get('_route') %}active{% endif %}">
                             <a href="{{ path('posts') }}" class="no-scroll">Blog</a>
                         </li>
+                        <li class="{% if 'posts' == app.request.get('_route') %}active{% endif %}">
+                            <a href="{{ path('concerts') }}" class="no-scroll">Concerts</a>
+                        </li>
                         {% if 'home' == app.request.get('_route') %}
                         <li class="scroll">
                             <a href="#about">About</a>

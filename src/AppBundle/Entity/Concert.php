@@ -188,4 +188,8 @@ class Concert
     {
         return $this->description;
     }
+
+    public function __toString(){
+        return $this->nom;
+    }
 }

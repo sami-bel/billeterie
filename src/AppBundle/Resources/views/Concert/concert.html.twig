@@ -26,6 +26,7 @@
                     <h3>il reste : </h3>{{ concert.nbrPlace }}
                     <h3> ce serait le </h3> {{ concert.date |date('d/m/Y')  }}
                     <p>{{ concert.description|raw }}</p>
+                    <a href="{{ path('achat', { 'id': concert.id }) }}" class="btn btn-info" role="button">Acheter</a>
                 </div>
 
             </div>

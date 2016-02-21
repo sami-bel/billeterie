@@ -2,10 +2,13 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Achat;
 use AppBundle\Entity\Article;
 use AppBundle\Entity\Concert;
+use AppBundle\Type\AchatType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -52,6 +55,8 @@ class DefaultController extends Controller
 
         return $this->render('AppBundle:Concert:concerts.html.twig', array('concerts' => $concerts));
     }
+
+
 }
 
 
