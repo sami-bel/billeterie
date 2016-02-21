@@ -36,11 +36,27 @@ class AchatController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($achat);
             $nbrPlace =$form['nbrPlace']->getData();
+            $mail=$form['mail']->getData();
             var_dump($nbrPlace);
             $concert->setNbrPlace($concert->getNbrPlace()-$nbrPlace);
             $em->flush();
 
             $this->addFlash('success', 'The buying has been successfully added.');
+
+            // pour envoyer un mail de confirmation
+
+
+            $mailer = $this->get('mailer');
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Confirmation')
+                ->setFrom('samsoum.infor@gmail.com')
+                ->setTo($mail)
+                //->setBody($this->renderView('HelloBundle:Hello:email.txt.twig', array('name' => $name)))
+            ;
+            $mailer->send($message);
+
+
 
             return $this->redirectToRoute('concerts');
         }
