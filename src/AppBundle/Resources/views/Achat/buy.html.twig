@@ -1,7 +1,7 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block title %}
-    {{ parent() }} - {% if 'article_new' == app.request.get('_route') %}New{% else %}Update{% endif %} article
+    Achat d'un concert
 {% endblock %}
 
 {% block top %}
@@ -25,7 +25,7 @@
 
         <a href="{{ path('concert_list') }}" class="btn btn-info pull-right" role="button">Back to the list</a>
 
-        <h1>{% if 'buy' == app.request.get('_route') %}Create{% else %}Update{% endif %} a new article</h1>
+        <h1>Achat d'un concert</h1>
 
         {{ form_start(achatForm) }}
             {{ form_widget(achatForm) }}

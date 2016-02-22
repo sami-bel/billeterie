@@ -3,6 +3,7 @@
 namespace AppBundle\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
@@ -16,7 +17,7 @@ class ArticleType extends AbstractType
             ->add('authorPicture')
             ->add('authorPosition')
             ->add('authorTwitter')
-            ->add('content')
+            ->add('content',TextareaType::class,array('attr'=> array('class'=>'ckeditor')))
         ;
     }
 }

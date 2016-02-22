@@ -23,9 +23,9 @@
             {{ message }}
         {% endfor %}
 
-        <a href="{{ path('article_list') }}" class="btn btn-info pull-right" role="button">Back to the list</a>
+        <a href="{{ path('concert_list') }}" class="btn btn-info pull-right" role="button">Back to the list</a>
 
-        <h1>{% if 'article_new' == app.request.get('_route') %}Create{% else %}Update{% endif %} a new concert</h1>
+        <h1>{% if 'concert_new' == app.request.get('_route') %}Create{% else %}Update{% endif %} a new concert</h1>
 
         {{ form_start(concertForm) }}
             {{ form_widget(concertForm) }}

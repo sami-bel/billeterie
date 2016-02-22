@@ -37,7 +37,7 @@ class AchatController extends Controller
             $em->persist($achat);
             $nbrPlace =$form['nbrPlace']->getData();
             $mail=$form['mail']->getData();
-            var_dump($nbrPlace);
+
             $concert->setNbrPlace($concert->getNbrPlace()-$nbrPlace);
             $em->flush();
 
@@ -47,18 +47,20 @@ class AchatController extends Controller
 
 
             $mailer = $this->get('mailer');
-
+            $pseudo = $form['nom']->getData();
+            $name_concert= $concert->getNom();
+            $date =$concert->getDate();
             $message = \Swift_Message::newInstance()
                 ->setSubject('Confirmation')
                 ->setFrom('samsoum.infor@gmail.com')
                 ->setTo($mail)
-                //->setBody($this->renderView('HelloBundle:Hello:email.txt.twig', array('name' => $name)))
+                ->setBody($this->renderView('AppBundle:Email:email.txt.twig', array('nom' =>$name_concert,'date'=>$date, 'nbrPlace'=>$nbrPlace,'pseudo'=>$pseudo )))
             ;
             $mailer->send($message);
 
+              return $this->render('AppBundle:Email:email.html.twig', array('nom' =>$name_concert,'date'=>$date, 'nbrPlace'=>$nbrPlace,'pseudo'=>$pseudo ));
 
 
-            return $this->redirectToRoute('concerts');
         }
         return array('achatForm' => $form->createView());
     }

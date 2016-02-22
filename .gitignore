@@ -3,11 +3,11 @@
 !/bin/console
 /build/
 /composer.phar
-!/vendor/
-/web/bundles/
+/vendor/
+!/web/bundles/app/
 /var/
 !var/cache/.gitkeep
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
 /phpunit.xml
-!/app/config/parameters.yml
+/app/config/parameters.yml

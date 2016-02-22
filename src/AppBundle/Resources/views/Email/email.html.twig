@@ -1,0 +1,30 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    Achat d'un concert
+{% endblock %}
+
+{% block top %}
+    <section id="home">
+        <div id="main-slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="img-responsive" src="{{ asset('bundles/app/images/slider/bg4.jpg') }}" alt="slider">
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock top %}
+
+{% block content %}
+    <section id="explore">
+        <div class="container">
+           <h2> Bonjour {{ pseudo }},</h2>
+
+           <p> Vous avez récemment acheté {{ nbrPlace }} places au concert " {{ nom }} "le {{ date |date('l j M Y H:i:s')}}
+            Nous tenons à vous remercier pour votre confiance.
+
+            Revenez nous voir souvent ! </p>
+        </div>
+    </section>
+{% endblock %}
